@@ -38,6 +38,9 @@ public class A1Jedi {
 		for (int i = 0; i < totalCust; i++) {
 			// creating  for loop to reuse for as many customers as needed
 			
+			boolean[] hasPurchasedItem = new boolean[store.length];
+			// checks to see if a customer has already bought an item 
+			
 			String firstName = scan.next();
 			char firstInital = firstName.charAt(0);
 			// Getting the first name of a customer from input and then using that string to get the first initial as a character
@@ -57,22 +60,27 @@ public class A1Jedi {
 				 for ( int p = 0; p < store.length; p++) {
 					 if (store[p][0].equals(purchasedItemName)) {
 						 // searching for name of item in the 0th layer of the array
-						 store[p][1] =""+ (Integer.parseInt(store[p][1]) + 1);
-						 // incrementing number of customers that bought this item 
 						 
+						 if(!hasPurchasedItem[p]) {
+							 // testing to see if they haven't already bought the item
+							 
+							 store[p][1] =""+ (Integer.parseInt(store[p][1]) + 1);
+							// incrementing number of customers that bought this item
+							 
+							hasPurchasedItem[p] = true;
+						 }
+						  
 						 store[p][2] =""+ (Integer.parseInt(store[p][2]) + quantity);
 						 // adding up the total number of items purchased  
 					 }
-				 } 
-				
+				 } 	
 			}
-			
-			
 		}
 		
 	for ( int j = 0; j < store.length; j++) {
 		if (store[j][1].equals("0")) {
 			System.out.println("No customers bought " + store[j][0]);
+			// this is printed when no customers have bought the item 
 		} else {
 			System.out.println((store[j][1]) + " customers bought "+ store[j][2] + " " + store[j][0]);
 		}
