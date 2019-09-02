@@ -68,6 +68,7 @@ public class A1Jedi {
 							// incrementing number of customers that bought this item
 							 
 							hasPurchasedItem[p] = true;
+							// making purchased item true so this doesn't loop infinitely 
 						 }
 						  
 						 store[p][2] =""+ (Integer.parseInt(store[p][2]) + quantity);

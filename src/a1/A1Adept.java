@@ -30,9 +30,14 @@ public class A1Adept {
 		
 		double max = 0;
 		String maxName = null;
+		// creating a placeholder for max and name of max customer
+		
 		double min = 100000;
 		String minName = null;
+		// creating a placeholder for min and name of min customer 
+		
 		double avg = 0;
+		// creating placeholder for average
 		
 		
 		for (int i = 0; i < totalCust; i++) {
@@ -73,19 +78,25 @@ public class A1Adept {
 			if(sum > max) {
 				max = sum;
 				maxName = firstName + " " + lastName;
+				// finding the max by seeing if the sum is more then the value currently held in max
 			}
 			
 			if(sum < min) {
 				min = sum;
 				minName = firstName + " " + lastName;
+				// finding min by seeing if the sum is less then the value held in min 
 			}
 			avg += sum;
+			// adding avg placeholder to current sum 
 		}
 		
 		avg /= totalCust;
+		// dividing sum by total customers to find the actual average 
+		
 		System.out.println("Biggest: " + maxName + " (" + String.format("%.2f",max) + ")");
 		System.out.println("Smallest: " + minName + " (" + String.format("%.2f",min) + ")");
 		System.out.println("Average: " + String.format("%.2f",avg)); 
+		// printing out all of the largest, smallest, and average and formating numbers to two decimal places 
 		
 	}
 }
